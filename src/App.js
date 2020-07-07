@@ -3,12 +3,17 @@ import './App.css';
 
 const {Provider, Consumer} = createContext({
   user: {},
-  sampleFunct: () => {}
+  sampleFunc: () => {},
 });
 
 const ComponentA = () => <ComponentB />;
 const ComponentB = () => <ComponentC />;
-const ComponentC = () => <div>Component C here! Username: {user.firstName}</div>;
+const ComponentC = () => (
+<Consumer>
+  {({user, sampleFunc}) => <div>Component C ! Passed Name: {user.firstName} <br />
+                            <button onClick={() => sampleFunc()}>Click for function</button></div>}  
+</Consumer>
+);
 
 class App extends React.Component {
   constructor(props) {
@@ -24,13 +29,6 @@ class App extends React.Component {
       sampleFunc: () => this.sampleFunc()
     };
   }
-
-  // componentDidMount(){
-  //   fetch('http://localhost:3000/user')
-  //   .then(res => res.json())
-  //   .then(user => console.log(user))
-    
-  // }
 
   sampleFunc(){
     console.log('Sample Func called !');
