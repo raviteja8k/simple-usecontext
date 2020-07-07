@@ -30,6 +30,7 @@ class App extends React.Component {
         "lastName": "T" 
       },
       sampleFunc: () => this.sampleFunc()
+      
     };
   }
 
@@ -40,7 +41,7 @@ class App extends React.Component {
   render(){
   return (       
       <div className="App">
-        <h1>Hola! Simple useContext App</h1>        
+                
         <UserProvider value={this.state}>  
           <ComponentA />
         </UserProvider> 
