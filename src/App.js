@@ -3,12 +3,12 @@ import './App.css';
 
 const {Provider, Consumer} = createContext({
   user: {},
-  sampleFunc: () => {}
+  sampleFunct: () => {}
 });
 
-const ComponentA = (props) => <ComponentB user={props.userName}/>;
-const ComponentB = (props) => <ComponentC user={props.user}/>;
-const ComponentC = (props) => <div>Component C here! Username: {props.user.firstName}</div>;
+const ComponentA = () => <ComponentB />;
+const ComponentB = () => <ComponentC />;
+const ComponentC = () => <div>Component C here! Username: {user.firstName}</div>;
 
 class App extends React.Component {
   constructor(props) {
@@ -37,11 +37,13 @@ class App extends React.Component {
   }
 
   render(){
-  return (    
-    <div className="App">
-      <h1>Hola! Simple useContext App</h1>
-      <ComponentA userName={this.state.user}/>
-    </div>
+  return (   
+    <Provider value={this.state}>
+      <div className="App">
+        <h1>Hola! Simple useContext App</h1>
+        <ComponentA />
+      </div>
+    </Provider> 
   );
   }
 }
