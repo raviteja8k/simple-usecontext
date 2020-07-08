@@ -38,8 +38,11 @@ class ComponentB extends React.Component{
         return (
             <div className={this.state.theme + ' block'}>
                 <ComponentC />
-                <ThemeButton />
-                <button onClick={() => this.state.changeTheme()}>Click to Change theme</button>
+    
+                <ThemeContext.Provider value={this.state}>
+                    <ThemeButton />
+                </ThemeContext.Provider>   
+                {/* <button onClick={() => this.state.changeTheme()}>Click to Change theme!</button> */}
             </div>
         );
     }
