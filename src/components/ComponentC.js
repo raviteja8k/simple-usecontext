@@ -5,11 +5,14 @@ const ComponentC = () => (
     <UserConsumer>
          {
          state => 
-                            <div>
-                                <h1>Hola! Simple useContext App</h1>
-                                Component C ! Passed Name: {state.user.firstName} <br />
-                                <button onClick={() => state.sampleFunc()}>Click for function</button>
-                             </div>
+                  <div>
+                      <h1>Hola! Simple useContext App</h1>
+                           {state.user.firstName ? 
+                           <span>Hello {state.user.firstName} !</span> : 
+                           <span>Logged Out!</span>}  
+                           <br />
+                       <button onClick={() => state.sampleFunc()}>Log out</button>
+                  </div>
         }
         
     </UserConsumer>

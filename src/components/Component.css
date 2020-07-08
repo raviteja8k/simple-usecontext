@@ -1,7 +1,15 @@
 .dark{
     background: #333;
-    color: white;
+    color: white;    
+}
+
+.block{
     width: 50%;
     padding: 5%;
     margin: 0 auto;
+}
+
+.light{
+    background: white;
+    color: #333;    
 }

@@ -35,7 +35,7 @@ class App extends React.Component {
   }
 
   sampleFunc(){
-    console.log('Sample Func called !');
+   this.setState({user: ''})
   }
 
   render(){
